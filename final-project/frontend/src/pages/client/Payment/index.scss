@@ -1,0 +1,130 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .pay-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .pay-1 {
+      width: 50%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 50px;
+      padding-left: 50px;
+      .i {
+        color: aqua;
+        font-size: 30px;
+      }
+      .p-text-pay {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-family: chillax-regular;
+        .total-pay{
+          font-size: 20px;
+        }
+      }
+      .powered {
+        padding-top: 420px;
+        font-family: chillax-regular;
+      }
+    }
+    .pay-2 {
+      width: 50%;
+      height: 104vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 50px;
+      padding-left: 50px;
+
+      .email-pay {
+        font-size: 30px;
+        padding-top: 20px;
+        font-family: chillax-regular;
+      }
+      .email-div {
+        .email {
+          font-size: 20px;
+          font-family: chillax-regular;
+        }
+        .email-inp {
+          width: 425px;
+          padding: 8px 30px;
+          height: 3vh;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+      .card-div {
+        .cardinfo {
+          font-size: 20px;
+          font-family: chillax-regular;
+        }
+        .card-inp {
+          width: 425px;
+          padding: 8px 30px;
+          height: 3vh;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+      .card-cvv {
+        .cvv {
+          width: 180px;
+          padding: 8px 30px;
+        }
+      }
+      .name-card-div {
+        .name-card {
+          font-size: 20px;
+          font-family: chillax-regular;
+        }
+        .name-inp {
+          width: 425px;
+          padding: 8px 30px;
+          height: 3vh;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+      .country-pay {
+        font-size: 20px;
+        font-family: chillax-regular;
+      }
+      .select-opt {
+        font-size: 20px;
+        font-family: chillax-regular;
+
+        .address-inp{
+          width: 425px;
+          padding: 8px 30px;
+          height: 3vh;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+      .btn-pay {
+        width: 485px;
+        height: 5vh;
+        font-family: chillax-regular;
+        background-color: #1677ff;
+        box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+        color: white;
+        border: none;
+        border-radius: 10px;
+      }
+    }
+  }
+}
