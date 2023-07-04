@@ -7,7 +7,9 @@ import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "antd";
 import { addToCart } from "../../../redux/slice/cartSlice";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 const Wishlist = () => {
+  const navigate = useNavigate()
   const data = useSelector((state) => state.addToFav.value);
   const dispatch = useDispatch();
   let totalPrice = 0;
@@ -16,6 +18,8 @@ const Wishlist = () => {
   });
   const handleAddToCart = (data) => {
     dispatch(addToCart(data));
+    navigate('/payment')
+    
   };
   return (
     <>

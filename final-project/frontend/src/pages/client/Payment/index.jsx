@@ -1,8 +1,9 @@
 import { Button } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import "./index.scss";
 const Payment = () => {
@@ -10,12 +11,14 @@ const Payment = () => {
   const [email, setEmail] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const Toast = ()=>{
-    // toast.success('Successfully toasted!')
-    
+  const [price,setPrice] = useState([])
 
-  }
-
+ useEffect(()=>{
+  const dataPrice = localStorage.getItem('cartItem')
+  const dataPriceJson = JSON.parse(dataPrice)
+   setPrice(dataPriceJson)
+ },[])
+ console.log('qiymet',price);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
   try {
@@ -23,7 +26,12 @@ const Payment = () => {
       email,
       cardNumber,
     });
-    toast.error("Invalid Username");
+    toast.success("Payment Successfully");
+    localStorage.removeItem("cartItem")
+    setTimeout(()=>{
+      navigate("/");
+      // location.reload();
+    },2000)
     const token = response.data;
     // localStorage.setItem("userFirstName", token.firstName);
     // localStorage.setItem("userLastName", token.lastName);
@@ -31,20 +39,16 @@ const Payment = () => {
     // localStorage.setItem("userAge", token.age);
     // localStorage.setItem("userUsername", token.username);
     // localStorage.setItem("userEmail", token.email);
-    const tokenString = JSON.stringify(token);
-    console.log(tokenString);
-    // console.log("username", username);
-    // console.log("username", token.username);
-    console.log(tokenString);
+ 
     // localStorage.setItem("token", tokenString);
     if (email === token.email) {
-      Swal.getPopup("Payment Successfully!");
-      navigate("/wishlist");
-      // toast.error("User Login not Successfully!");
+      
+       toast.success("Payment Successfully!");
+
     } else {
-      setErrorMessage("Invalid Username");
+      setErrorMessage("Invalid Kenan");
       navigate("/login");
-      toast.error("Invalid Username");
+      toast.error("Invalid Kenan");
     }
   } catch (error) {
     if (error.response && error.response.status === 401) {
@@ -52,9 +56,7 @@ const Payment = () => {
       toast.error("Invalid password");
       Swal.getPopup("Payment Failed!");
     } else {
-      setErrorMessage("Payment is not access");
-      toast.error("Payment is not access");
-      Swal.getPopup("Payment is not access!");
+      // navigate("/wishlist")
     }
   }
   }
@@ -67,9 +69,17 @@ const Payment = () => {
             <p className="total-pay" style={{ color: "gray" }}>
               Total Payment :
             </p>
-            <h1>
-              <i class="fa-solid fa-euro-sign"></i>2.00
-            </h1>
+            
+              {price.map((p)=>(
+
+                  <h1>
+                  <i class="fa-solid fa-euro-sign"></i>{p.price}
+                  </h1>
+              ))}
+                
+                
+              
+              
           </div>
           <div className="powered">
             <p style={{ color: "gray" }}>
@@ -113,11 +123,12 @@ const Payment = () => {
           <div className="select-opt">
             <input className="address-inp" type="text" name="" id="" />
           </div>
-          <button onClick={Toast} className="btn-pay" type="primary">
+          <button onClick={handleFormSubmit} className="btn-pay" type="primary">
             Pay
           </button>
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 };
