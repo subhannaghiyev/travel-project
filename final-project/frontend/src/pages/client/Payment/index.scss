@@ -11,7 +11,7 @@
 
   .pay-main {
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: space-between;
 
     .pay-1 {
@@ -22,10 +22,6 @@
       gap: 20px;
       padding-top: 50px;
       padding-left: 50px;
-      .i {
-        color: aqua;
-        font-size: 30px;
-      }
       .p-text-pay {
         display: flex;
         flex-direction: column;
@@ -36,7 +32,7 @@
         }
       }
       .powered {
-        padding-top: 420px;
+        padding-top: 100px;
         font-family: chillax-regular;
       }
     }
@@ -127,4 +123,33 @@
       }
     }
   }
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+    .card-payment {
+      width: 300px;
+    }
+    
+    .card-content {
+      display: flex;
+    }
+    
+    .image-container {
+      flex: 1;
+      
+      .card-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+    
+    .text-container {
+      flex: 2;
+      padding: 10px;
+    }
+  }
+  
 }

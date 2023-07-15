@@ -48,18 +48,18 @@ public class UserController {
 //            log.warn("Token has expired: " + token);
 //            throw new UnAuthorizedException("Token has expired");
 //        } else {
-            List<User> filteredUsers = userService.getFilteredUsers(userCriteria);
+        List<User> filteredUsers = userService.getFilteredUsers(userCriteria);
 
-            List<UserRequest> userRequestList = new ArrayList<>();
-            for (User user : filteredUsers) {
-                UserRequest userRequest = userMapper.mapEntityToRequest(user);
-                userRequestList.add(userRequest);
-            }
+        List<UserRequest> userRequestList = new ArrayList<>();
+        for (User user : filteredUsers) {
+            UserRequest userRequest = userMapper.mapEntityToRequest(user);
+            userRequestList.add(userRequest);
+        }
 
 //            previousToken = token;
 
-            return userRequestList;
-        }
+        return userRequestList;
+    }
 
 
     @GetMapping("/{id}")
@@ -127,6 +127,25 @@ public class UserController {
     }
 
 
+    //    @PostMapping("/login")
+//    public ResponseEntity<UserDto> isValid(@RequestBody LoginRequest loginRequest) {
+//        UserDto valid = userService.isValid(loginRequest.getUsername());
+//
+//        if (valid != null && valid.getUsername().equalsIgnoreCase(loginRequest.getUsername())) {
+//            if (loginRequest.getPassword().equals(valid.getPassword())) {
+//                String token = redisTokenService.generateToken(valid.getId());
+//                redisTokenService.saveToken(valid.getId(), token);
+//                HttpHeaders headers = new HttpHeaders();
+//                headers.add("Authorization", token);
+//                System.out.println(token);
+//                return ResponseEntity.ok().headers(headers).body(valid);
+//            } else {
+//                throw new InvalidPasswordException("Invalid password");
+//            }
+//        } else {
+//            throw new UserNotFoundException("Invalid Username");
+//        }
+//    }
     @PostMapping("/login")
     public ResponseEntity<UserDto> isValid(@RequestBody LoginRequest loginRequest) {
         UserDto valid = userService.isValid(loginRequest.getUsername());
@@ -143,9 +162,14 @@ public class UserController {
                 throw new InvalidPasswordException("Invalid password");
             }
         } else {
-            throw new UserNotFoundException("User Not Found");
+            if (valid == null) {
+                throw new UserNotFoundException("Invalid Username");
+            } else {
+                throw new UserNotFoundException("Invalid username");
+            }
         }
     }
+
 
     @PostMapping("/loginAdmin")
     public ResponseEntity<UserDto> adminLogin(@RequestBody AdminLoginRequest loginRequest) {
@@ -163,21 +187,19 @@ public class UserController {
     }
 
 
-
-
     @PostMapping("/resetToken")
     public ResponseEntity<String> resetToken(@RequestHeader String token) {
         String newToken = redisTokenService.resetToken(token);
         return ResponseEntity.ok(newToken);
     }
 
-   @PostMapping("/checkCard")
-    public ResponseEntity<String> isValidCard(@RequestBody UserEmailAndCardNumberRequest userRequest){
-       User userDto = userService.isValidEmailAndCardNumber(userRequest.getEmail(), userRequest.getCardNumber());
-       if (userDto.getCardNumber().equals(userRequest.getCardNumber()) || userDto.getCardNumber().equals(userRequest.getCardNumber())){
-           return ResponseEntity.status(HttpStatus.CREATED).body("User successfully!");
-       }
-       throw new UserNotFoundException("User Not Found");
-   }
+    @PostMapping("/checkCard")
+    public ResponseEntity<String> isValidCard(@RequestBody UserEmailAndCardNumberRequest userRequest) {
+        User userDto = userService.isValidEmailAndCardNumber(userRequest.getEmail(), userRequest.getCardNumber());
+        if (userDto.getCardNumber().equals(userRequest.getCardNumber()) || userDto.getCardNumber().equals(userRequest.getCardNumber())) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("User successfully!");
+        }
+        throw new UserNotFoundException("User Not Found");
+    }
 
 }

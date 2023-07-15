@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./index.scss";
 const Profile = () => {
   const location = useLocation();
@@ -8,7 +8,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (
-      location.pathname.startsWith("/admin/")  &&
+      location.pathname.startsWith("/admin/") &&
       !localStorage.getItem("adminLoggedIn")
     ) {
       navigate("/admin/loginAdmin");
@@ -23,7 +23,7 @@ const Profile = () => {
   const adminLastName = localStorage.getItem("adminLastName");
   return (
     <>
-    <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Profile</title>
         <link rel="canonical" href="http://mysite.com/example" />
@@ -63,22 +63,25 @@ const Profile = () => {
                     <span style={{ color: "deeppink" }}>{adminLastName}</span>
                   </p>
                   <p className="email">
-                    Age :{" "}
-                    <span style={{ color: "deeppink" }}>
-                      {" "}
-                      {adminAge}
-                    </span>
+                    Age : <span style={{ color: "deeppink" }}> {adminAge}</span>
                   </p>
                 </div>
                 <div className="user-info-private">
                   <p className="username">
-                    Username :{" "}
-                    <span style={{ color: "deeppink" }}>{adminUsername}</span>
+                    Email :{" "}
+                    <span style={{ color: "deeppink" }}>{adminEmail}</span>
                   </p>
-                  <p className="birthday">
-                    Password :{" "}
-                    <span style={{ color: "deeppink" }}>{adminPassword}</span>
-                  </p>
+                  <div style={{display : "flex" , alignItems : "center", gap : 5}}>
+                    <p className="birthday">
+                      Password :{" "}
+                    </p>
+                    <p
+                        className="password-hidden"
+                        style={{ color: "deeppink" , fontSize : 25, marginTop : 12 }}
+                      >
+                        *******
+                      </p>
+                  </div>
                 </div>
               </div>
             </div>

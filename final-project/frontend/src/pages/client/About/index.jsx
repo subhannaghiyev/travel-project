@@ -4,12 +4,18 @@ import { GiTowerBridge } from "react-icons/gi";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { FaSuitcaseRolling } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+import { useState } from "react";
 // import CountUp from "react-countup"
 // import ScrollTrigger from "react-scroll-trigger"
 const About = () => {
+  const [countOn , setCountOn] = useState(false)
+  const navigate = useNavigate();
   return (
     <>
-     <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>About</title>
         <link rel="canonical" href="http://mysite.com/example" />
@@ -27,13 +33,13 @@ const About = () => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start"}}>Destination</label>
-              <input className="inp" type="text" placeholder="Keyword here"/>
+              <label style={{ textAlign: "start" }}>Destination</label>
+              <input className="inp" type="text" placeholder="Keyword here" />
             </div>
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start"}}>Adventure type</label>
+              <label style={{ textAlign: "start" }}>Adventure type</label>
               <select className="inp-select">
                 <option className="inp-color" value="Categores">
                   Categories
@@ -46,7 +52,7 @@ const About = () => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start"}}>Min price</label>
+              <label style={{ textAlign: "start" }}>Min price</label>
               <select className="inp-price">
                 <option value=""></option>
                 <option value="option1">price</option>
@@ -56,7 +62,7 @@ const About = () => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >
-              <label style={{textAlign:"start"}}>Max price</label>
+              <label style={{ textAlign: "start" }}>Max price</label>
               <select className="inp-price">
                 <option value=""></option>
                 <option value="option1">price</option>
@@ -85,7 +91,9 @@ const About = () => {
             sollicitudin dui. Sed ac magna mauris. Nullam lectus odio, viverra
             vel mi id, interdum imperdiet nulla.
           </p>
-          <button className="about-btn">Read More</button>
+          <div className="buttons">
+            <button onClick={()=>navigate("/data")} className="about-btn">Read More</button>
+          </div>
         </div>
         <div className="about-image">
           <img
@@ -115,7 +123,11 @@ const About = () => {
               src="https://preview.colorlib.com/theme/destino/images/milestone_1.svg"
               alt=""
             />
-            <p className="icon-p">17</p>
+            <ScrollTrigger onEnter={()=> setCountOn(true)} onExit={()=> setCountOn(false)}>
+              <p className="icon-p">
+              {countOn && <CountUp start={0} end={17} duration={2} delay={0} />}
+              </p>
+            </ScrollTrigger>
             <p className="icon-text">Mountains Climbed</p>
           </div>
           <div className="icon">
@@ -124,7 +136,11 @@ const About = () => {
               src="https://preview.colorlib.com/theme/destino/images/milestone_2.svg"
               alt=""
             />
-            <p className="icon-p">213</p>
+            <ScrollTrigger onEnter={()=> setCountOn(true)} onExit={()=> setCountOn(false)}>
+              <p className="icon-p">
+              {countOn && <CountUp start={0} end={213} duration={2} delay={0} />}
+              </p>
+            </ScrollTrigger>
             <p className="icon-text">Islands Visited</p>
           </div>
           <div className="icon">
@@ -133,7 +149,11 @@ const About = () => {
               src="https://preview.colorlib.com/theme/destino/images/milestone_3.svg"
               alt=""
             />
-            <p className="icon-p">11923</p>
+            <ScrollTrigger onEnter={()=> setCountOn(true)} onExit={()=> setCountOn(false)}>
+              <p className="icon-p">
+                {countOn && <CountUp start={0} end={11923} duration={2} delay={0} />}
+              </p>
+            </ScrollTrigger>
             <p className="icon-text">Photos Taken</p>
           </div>
           <div className="icon">
@@ -142,7 +162,11 @@ const About = () => {
               src="https://preview.colorlib.com/theme/destino/images/milestone_4.svg"
               alt=""
             />
-            <p className="icon-p">15</p>
+            <ScrollTrigger onEnter={()=> setCountOn(true)} onExit={()=> setCountOn(false)}>
+              <p className="icon-p">
+              {countOn && <CountUp start={0} end={15} duration={2} delay={0} />}
+              </p>
+            </ScrollTrigger>
             <p className="icon-text">Cruises Organized</p>
           </div>
         </div>
@@ -155,61 +179,59 @@ const About = () => {
 
       <div className="sect-6-about">
         <div className="sect-6-column">
-        <div className="sect-6-display">
-          <div className="sect-6-icon">
-            <GiTowerBridge />
+          <div className="sect-6-display">
+            <div className="sect-6-icon">
+              <GiTowerBridge style={{cursor : "pointer"}} />
+            </div>
+            <div className="sect-6-keyword">
+              <p className="weekend">Weekend trips</p>
+            </div>
           </div>
-          <div className="sect-6-keyword">
-            <p className="weekend">Weekend trips</p>
+          <div className="sect-6-text">
+            <p className="sect-6-about-text">
+              Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
+              fringilla lectus nec diam auctor, ut fringilla diam sagittis.
+            </p>
           </div>
-        </div>
-        <div className="sect-6-text">
-          <p className="sect-6-about-text">
-            Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
-            fringilla lectus nec diam auctor, ut fringilla diam sagittis.
-          </p>
-        </div>
-        <div className="sect-6-btn">
-          <button className="sect-6-about-btn">Read More</button>
-        </div>
+          <div className="sect-6-btn">
+          <Link to="/offers"><button class="btn draw-border">Read More</button></Link>
+          </div>
         </div>
         <div className="sect-6-column">
-        <div className="sect-6-display">
-          <div className="sect-6-icon">
-            <FaSuitcaseRolling />
+          <div className="sect-6-display">
+            <div className="sect-6-icon">
+              <FaSuitcaseRolling style={{cursor : "pointer"}}  />
+            </div>
+            <div className="sect-6-keyword">
+              <p className="weekend">Fun leisure trips</p>
+            </div>
           </div>
-          <div className="sect-6-keyword">
-            <p className="weekend">Fun leisure trips</p>
+          <div className="sect-6-text">
+            <p className="sect-6-about-text">
+              Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
+              fringilla lectus nec diam auctor, ut fringilla diam sagittis.
+            </p>
           </div>
-        </div>
-        <div className="sect-6-text">
-          <p className="sect-6-about-text">
-            Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
-            fringilla lectus nec diam auctor, ut fringilla diam sagittis.
-          </p>
-        </div>
-        <div className="sect-6-btn">
-          <button className="sect-6-about-btn">Read More</button>
-        </div>
+          <Link to="/offers"><button class="btn draw-border">Read More</button></Link>
         </div>
         <div className="sect-6-column">
-        <div className="sect-6-display">
-          <div className="sect-6-icon">
-            <FaPlaneDeparture />
+          <div className="sect-6-display">
+            <div className="sect-6-icon">
+              <FaPlaneDeparture style={{cursor : "pointer"}}  />
+            </div>
+            <div className="sect-6-keyword">
+              <p className="weekend">Plane tickets</p>
+            </div>
           </div>
-          <div className="sect-6-keyword">
-            <p className="weekend">Plane tickets</p>
+          <div className="sect-6-text">
+            <p className="sect-6-about-text">
+              Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
+              fringilla lectus nec diam auctor, ut fringilla diam sagittis.
+            </p>
           </div>
-        </div>
-        <div className="sect-6-text">
-          <p className="sect-6-about-text">
-            Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
-            fringilla lectus nec diam auctor, ut fringilla diam sagittis.
-          </p>
-        </div>
-        <div className="sect-6-btn">
-          <button className="sect-6-about-btn">Read More</button>
-        </div>
+          <div className="sect-6-btn">
+          <Link to="/offers"><button class="btn draw-border">Read More</button></Link>
+          </div>
         </div>
       </div>
 
@@ -219,8 +241,10 @@ const About = () => {
             <p className="p-last">Subscribe to our Newsletter</p>
           </div>
           <div className="last-section-input">
-            <input className="last-section-inp" type="text" name="" id="" placeholder="Your E-mail Address" />
-            <button className="last-btn">Subscribe</button>
+            <p className="last-section-inp">Send to Email Admin</p>
+            <Link to="/adminMessage">
+              <button className="last-btn">Send</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -18,6 +18,8 @@ const User = () => {
     localStorage.removeItem("userUsername");
     localStorage.removeItem("userAge");
     localStorage.removeItem("userPassword");
+    localStorage.removeItem("token")
+    localStorage.removeItem("userIsAdmin")
     navigate("/login")
   };
   const goBack = () => {
@@ -53,7 +55,7 @@ const User = () => {
             </div>
             <div className="text-user-3">
               <label style={{ fontFamily: "chillax-regular" }}>Password:</label>
-              <p className="user-data">{userPassword}</p>
+              <p className="user-data">{"*******"}</p>
               <label style={{ fontFamily: "chillax-regular" }}>Age:</label>
               <p className="user-data">{userAge}</p>
             </div>

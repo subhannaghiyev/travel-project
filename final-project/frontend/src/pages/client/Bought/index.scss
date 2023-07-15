@@ -1,0 +1,204 @@
+.sect-offers {
+  display: flex;
+  gap: 40px;
+  padding-top: 70px;
+  padding-left: 90px;
+  position: relative;
+  .images-offers {
+    position: relative;
+    .img {
+      width: 300px;
+      height: 400px;
+      border-radius: 10px;
+    }
+    .icons-data {
+      display: none;
+      width: 100%;
+      height: 70px;
+      background-color: rgba(255, 255, 255, 0.621);
+      position: absolute;
+      bottom: 3px;
+      font-size: 40px;
+      .heart-icon {
+        color: white;
+        margin-left: 240px;
+        margin-top: 15px;
+      }
+      .heart-icon:hover {
+        transition: all 0.5s ease-in-out;
+
+        color: red;
+        // background-color: red;
+        border: none;
+        //  font-size: 43px;
+        transform: scale(1.1);
+      }
+    }
+  }
+  .images-offers:hover {
+    cursor: pointer;
+    .icons-data {
+      display: block !important;
+    }
+  }
+  .offers-column {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    text-align: justify;
+    gap: 10px;
+    font-family: chillax-regular;
+    .dollar {
+      font-size: 14px;
+      font-weight: 500;
+      color: #131a2f;
+      font-family: chillax-regular;
+    }
+    .country {
+      font-size: 20px;
+      font-weight: 500;
+      color: #131a2f;
+      margin-top: 1px;
+      font-family: chillax-regular;
+    }
+    .count {
+      display: inline-block;
+      font-size: 12px;
+      color: #878c9b;
+      font-family: chillax-regular;
+    }
+    .stars {
+      display: flex;
+      gap: 5px;
+      .icon-star {
+        font-size: 20px;
+        color: #fa9e1b;
+      }
+    }
+    .offers-text {
+      width: 720px;
+      color: #7d8293;
+      font-size: 15px;
+      line-height: 2;
+      margin-top: 11px;
+      font-family: chillax-regular;
+    }
+    .btn-offers {
+      width: 60px;
+      border: white;
+      font-size: 12px;
+      color: #131a2f;
+      cursor: pointer;
+      margin-top: 50px;
+      transition: all 0.4s ease;
+    }
+    .btn-offers:hover {
+      color: rgba(254, 60, 82, 0.8);
+    }
+  }
+  .icons-stars {
+    display: flex;
+    position: absolute;
+    bottom: 160px;
+    left: 420px;
+    font-size: 20px;
+    color: #fa9e1b;
+    gap: 5px;
+    .icon-star {
+      font-size: 20px;
+      color: #fa9e1b;
+    }
+  }
+  .received {
+    position: absolute;
+    bottom: 100px;
+    left: 425px;
+    font-size: 26px;
+    font-family: chillax-regular;
+    color: red;
+    font-weight: 600;
+  }
+}
+.div-bought {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background: #fc466b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3f5efb,
+    #fc466b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3f5efb,
+    #fc466b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  .h1-bought {
+    font-family: chillax-regular;
+    justify-content: center;
+    background-color: #fe435b;
+    color: white;
+    font-size: 50px;
+  }
+  .p-bought {
+    font-family: chillax-regular;
+    font-size: 40px;
+    color: white;
+    background: #c94b4b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #4b134f,
+      #c94b4b
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #4b134f,
+      #c94b4b
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .btn-bought {
+    background: #FC354C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    width: 180px;
+    padding: 12px 28px;
+    border: none;
+    height: 6vh;
+    border-radius: 10px;
+    color: white;
+    font-family: chillax-regular;
+    cursor: pointer;
+  }
+}
+.btn-offers-wishlist {
+  position: absolute;
+  left: 424px;
+  bottom: 20px;
+  width: 120px;
+  height: 6vh;
+  padding: 10px 28px;
+  background: #ed213a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  margin-top: 50px;
+  transition: all 0.4s ease;
+  border: none;
+  border-radius: 7px;
+  font-family: chillax-regular;
+}

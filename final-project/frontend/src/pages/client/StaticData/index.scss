@@ -1,0 +1,151 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .background-img {
+    background-image: url("https://preview.colorlib.com/theme/destino/images/home.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    font-family: chillax-regular;
+    .about-display {
+      padding-top: 200px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+
+      .about-text {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .about-p {
+          width: 600px;
+          font-family: chillax-regular;
+          font-size: 15px;
+          line-height: 2;
+          font-weight: 300;
+          color: #eff3ff;
+          text-align: left;
+        }
+        .buttons {
+          .about-btn {
+            width: 180px;
+            padding: 16px 28px;
+            display: block;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 26px;
+            font-family: chillax-regular;
+            background-image: linear-gradient(
+              to right,
+              #6253e1,
+              #852d91,
+              #a3a1ff,
+              #f24645
+            );
+            box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            // ---------------
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            height: 55px;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 50px;
+            moz-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+          }
+          .about-btn:hover {
+            background-position: 100% 0;
+            moz-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+          }
+          .about-btn:focus {
+            outline: none;
+          }
+        }
+      }
+      .about-image {
+        .about-img-1 {
+          width: 450px;
+          height: 290px;
+          border-radius: 20px;
+          border: 4px double #38085a;
+        }
+      }
+      .buttons-1 {
+        margin-top: 230px;
+        position: absolute;
+        right: 600px;
+        cursor: pointer;
+        .about-btn-1 {
+          cursor: pointer;
+          width: 180px;
+          padding: 8px 28px;
+          display: block;
+          font-size: 16px;
+          color: #ffffff;
+          line-height: 26px;
+          font-family: chillax-regular;
+          background: #c31432; /* fallback for old browsers */
+          background: -webkit-linear-gradient(
+            to right,
+            #240b36,
+            #c31432
+          ); /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(
+            to right,
+            #240b36,
+            #c31432
+          ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+          box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+          text-align: center;
+          border: none;
+          cursor: pointer;
+          // ---------------
+          font-size: 16px;
+          font-weight: 600;
+          color: #fff;
+          height: 55px;
+          text-align: center;
+          border: none;
+          background-size: 300% 100%;
+          border-radius: 50px;
+          moz-transition: all 0.4s ease-in-out;
+          -o-transition: all 0.4s ease-in-out;
+          -webkit-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+        }
+        .about-btn:hover {
+          background-position: 100% 0;
+          moz-transition: all 0.4s ease-in-out;
+          -o-transition: all 0.4s ease-in-out;
+          -webkit-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+          cursor: pointer;
+        }
+        .about-btn:focus {
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

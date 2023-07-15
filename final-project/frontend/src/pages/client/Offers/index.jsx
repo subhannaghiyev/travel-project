@@ -4,7 +4,7 @@ import { FaBars, FaThLarge } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import axios from "axios";
 import { AiTwotoneHeart } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToFav } from "../../../redux/slice/FavSlice";
 import { useDispatch } from "react-redux";
 import { Helmet } from "react-helmet";
@@ -207,14 +207,10 @@ const Offers = ({ handleWishlistClick }) => {
             <p className="p-last">Subscribe to our Newsletter</p>
           </div>
           <div className="last-section-input">
-            <input
-              className="last-section-inp"
-              type="text"
-              name=""
-              id=""
-              placeholder="Your E-mail Address"
-            />
-            <button className="last-btn">Subscribe</button>
+            <p className="last-section-inp">Send to Email Admin</p>
+            <Link to="/adminMessage">
+            <button className="last-btn">Send</button>
+            </Link>
           </div>
         </div>
       </div>

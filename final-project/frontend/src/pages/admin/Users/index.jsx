@@ -44,15 +44,15 @@ const Users = () => {
     dataIndex: "email",
     render: (email) => <div style={{ fontFamily: "chillax-regular" , textAlign:"justify"}}>{email}</div>,
   },
-  {
-    title: "IsAdmin",
-    dataIndex: "isAdmin",
-    render: (isAdmin) => (
-      <div style={{ fontFamily: "chillax-regular", textAlign: "justify" }}>
-        {isAdmin ? "True" : "False"} {/* Örneğin, isAdmin true ise "Yes", değilse "No" olarak gösterin */}
-      </div>
-    ),
-  },
+  // {
+  //   title: "IsAdmin",
+  //   dataIndex: "isAdmin",
+  //   render: (isAdmin) => (
+  //     <div style={{ fontFamily: "chillax-regular", textAlign: "justify" }}>
+  //       {isAdmin ? "True" : "False"} {/* Örneğin, isAdmin true ise "Yes", değilse "No" olarak gösterin */}
+  //     </div>
+  //   ),
+  // },
   ];
 
   const [data, setData] = useState([]);

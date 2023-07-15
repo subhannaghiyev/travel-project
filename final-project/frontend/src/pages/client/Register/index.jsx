@@ -13,6 +13,7 @@ import "./styles.css";
 import { Autoplay, Pagination } from "swiper";
 import { ProductForm } from "../../../schema";
 import { Helmet } from "react-helmet";
+import { toast, ToastContainer } from "react-toastify";
 const Register = () => {
   const navigate = useNavigate();
   const {
@@ -34,7 +35,7 @@ const Register = () => {
       email: values.email,
       password: values.password,
     });
-    navigate('/login')
+    navigate("/login")
   };
 
   return (
@@ -100,7 +101,7 @@ const Register = () => {
             />
             {errors.password?.message && <p style={{color : "red"}}>{errors.password?.message}</p>}
             <button
-              // onClick={() => navigate("/login")}
+              onClick={() => navigate("/login")}
               type="submit"
               className="btn"
             >

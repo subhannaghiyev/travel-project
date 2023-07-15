@@ -8,6 +8,8 @@ import "./styles.css";
 import { Pagination } from "swiper";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 const Home = () => {
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
@@ -16,7 +18,7 @@ const Home = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [value, setValue] = useState("");
-  const [sort, setSort] = useState(false)
+  const [sort, setSort] = useState(false);
   const [filteredData, setFilteredData] = useState(
     data.filter((d) => d.id > 4 && d.id < 10)
   );
@@ -40,55 +42,38 @@ const Home = () => {
   const handleChangeCountry = (value) => {
     setCountry(value);
   };
-const Sorting = ()=>{
-  let arr = []
-  if (sort===false) {
-    setSort(true)
-    arr = [...data].sort((a,b)=>{
-      return a.price-b.price;
-    });
-  }else {
-    setSort(false)
-    arr = [...data].sort((a,b)=>{
-      return b.price-a.price;
-    });
-  }
-  setData(arr)
-}
-  // const handleFilter = () => {
-  //   console.log("Data:", data);
-  //   // Apply your filtering logic here based on the selected values
-  //   const filteredData = data.filter((d) => {
-  //     // Filter by destination (case-insensitive)
-  //     const destinationMatch = d.country
-  //       .toLowerCase()
-  //       .includes(destination.toLowerCase());
-  //     console.log("Destination Match:", destinationMatch);
-
-  //     // Filter by adventure type
-  //     const adventureTypeMatch = d.country === adventureType;
-  //     console.log("Adventure Type Match:", adventureTypeMatch);
-
-  //     // Filter by price range
-  //     const minPriceMatch = minPrice === "" || d.price >= parseInt(minPrice);
-  //     console.log("Min Price Match:", minPriceMatch);
-  //     const maxPriceMatch = maxPrice === "" || d.price <= parseInt(maxPrice);
-  //     console.log("Max Price Match:", maxPriceMatch);
-
-  //     return (
-  //       destinationMatch || adventureTypeMatch || minPriceMatch || maxPriceMatch
-  //     );
-  //   });
-
-  //   console.log("Filtered Data:", filteredData);
-
-  //   setFilteredData(filteredData);
-  // };
-
+  const Sorting = () => {
+    let arr = [];
+    if (sort === false) {
+      setSort(true);
+      arr = [...data].sort((a, b) => {
+        return a.price - b.price;
+      });
+    } else {
+      setSort(false);
+      arr = [...data].sort((a, b) => {
+        return b.price - a.price;
+      });
+    }
+    setData(arr);
+  };
   useEffect(() => {
     getData();
     getData2();
   }, []);
+
+  const playVideo = () => {
+    var videoPlayer = document.getElementById("videoPlayer");
+    var iframe = document.createElement("iframe");
+    iframe.classList.add("embed-responsive-item");
+    iframe.src = "https://www.youtube.com/embed/0NMIZ-PTt8k?autoplay=1";
+    iframe.title = "Youtube Video";
+    iframe.allowfullscreen = true;
+    iframe.width = "600"; // Genişlik değerini burada belirleyebilirsiniz
+    iframe.height = "300"; // Yükseklik değerini burada belirleyebilirsiniz
+    videoPlayer.innerHTML = "";
+    videoPlayer.appendChild(iframe);
+  };
   return (
     <>
       <Helmet>
@@ -110,25 +95,25 @@ const Sorting = ()=>{
           <h3 className="h3">Find the Adventure of a lifetime</h3>
         </div>
         <div className="input">
-          <div
-            style={{ display: "flex",alignItems:'center', gap: "10px" }}
-          >
-            <div style={{ display: "flex",flexDirection:'column',gap:10}}>
-            <label
-              style={{ textAlign: "start", fontFamily: "chillax-regular" }}
-            >
-              Destination:
-            </label>
-            <input
-              onChange={handleChange}
-              className="inp"
-              type="text"
-              placeholder="Keyword here"
-              // value={destination}
-              // onChange={(e) => setDestination(e.target.value)}
-            />
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <label
+                style={{ textAlign: "start", fontFamily: "chillax-regular" }}
+              >
+                Destination:
+              </label>
+              <input
+                onChange={handleChange}
+                className="inp"
+                type="text"
+                placeholder="Keyword here"
+                // value={destination}
+                // onChange={(e) => setDestination(e.target.value)}
+              />
             </div>
-            <button className="btn" onClick={Sorting}>Find</button>
+            <button className="btn" onClick={Sorting}>
+              Filter By Price
+            </button>
           </div>
         </div>
       </div>
@@ -187,7 +172,9 @@ const Sorting = ()=>{
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
                 pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel
               </p>
-              <button className="btn-2">See Offer</button>
+              <Link to="/offers">
+                <button className="btn-2">See Offer</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -201,29 +188,40 @@ const Sorting = ()=>{
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
                 pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel
               </p>
-              <button className="btn-2">See Offer</button>
+              <Link to="/offers">
+                <button className="btn-2">See Offer</button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
       <div className="sect-5">
-        <div className="video-text">
-          <p className="video-p">A day on the island</p>
-          <p className="video-p-1">A trip organized by Destino's team</p>
-          <CiPlay1
-            style={{
-              color: "white",
-              fontSize: 40,
-              borderRadius: "55%",
-              border: "2px solid white",
-              padding: "46px 46px",
-              marginTop: 10,
-            }}
-          />
-        </div>
+        <Container>
+          <div className="video-text">
+            <p className="video-p">A day on the island</p>
+            <p className="video-p-1">A trip organized by Destino's team</p>
+            <div
+              id="videoPlayer"
+              className="embed-responsive embed-responsive-16by9"
+              style={{ marginTop: "10px" }}
+            >
+              <CiPlay1
+                onClick={playVideo}
+                style={{
+                  color: "white",
+                  fontSize: 40,
+                  borderRadius: "55%",
+                  border: "2px solid white",
+                  padding: "46px 46px",
+                  marginTop: 10,
+                  cursor : "pointer"
+                }}
+              />
+            </div>
+          </div>
+        </Container>
       </div>
-
       <div className="sect-3-home">
         <h4 className="h4-home">Popular destinations in 2018</h4>
         <p className="p-sect-3-home">TAKE A LOOK AT THESE OFFERS</p>
@@ -246,6 +244,11 @@ const Sorting = ()=>{
           }
           return null; // Return null for data with id <= 5 to skip rendering
         })}
+      </div>
+
+      <div className="sect-3-home">
+        <h4 className="h4-home">Special offers</h4>
+        <p className="p-sect-3-home">TAKE A LOOK AT THESE OFFERS</p>
       </div>
 
       <Swiper
@@ -294,14 +297,10 @@ const Sorting = ()=>{
             <p className="p-last">Subscribe to our Newsletter</p>
           </div>
           <div className="last-section-input">
-            <input
-              className="last-section-inp"
-              type="text"
-              name=""
-              id=""
-              placeholder="Your E-mail Address"
-            />
-            <button className="last-btn">Subscribe</button>
+            <p className="last-section-inp">Send to Email Admin</p>
+            <Link to="/adminMessage">
+              <button className="last-btn">Send</button>
+            </Link>
           </div>
         </div>
       </div>

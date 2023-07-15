@@ -9,12 +9,20 @@ const LogoAdmin = () => {
   const navigate = useNavigate();
   const removeItems = () => {
     localStorage.removeItem("adminLoggedIn");
-    const adminFirstName = localStorage.removeItem("adminFirstName");
-    const adminLastName = localStorage.removeItem("adminLastName");
-    const adminEmail = localStorage.removeItem("adminEmail");
-    const adminUsername = localStorage.removeItem("adminUsername");
-    const adminAge = localStorage.removeItem("adminAge");
-    const adminPassword = localStorage.removeItem("adminPassword");
+    localStorage.removeItem("adminFirstName");
+    localStorage.removeItem("adminLastName");
+    localStorage.removeItem("adminEmail");
+    localStorage.removeItem("adminUsername");
+    localStorage.removeItem("adminAge");
+    localStorage.removeItem("adminPassword");
+    localStorage.removeItem("userAge");
+    localStorage.removeItem("userPassword");
+    localStorage.removeItem("userFirstName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userLastName");
+    localStorage.removeItem("userUsername");
+    localStorage.removeItem("userIsAdmin");
+    localStorage.removeItem("token");
     navigate("/login");
     // Başarılı çıkış mesajını göster
     toast.success("Başarıyla çıkış yapıldı!");

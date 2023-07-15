@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import "./index.scss";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet";
 
 const LoginAdmin = () => {
@@ -10,6 +10,8 @@ const LoginAdmin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const isAdmin = localStorage.getItem("userIsAdmin")
 
   useEffect(() => {
     if (localStorage.getItem("adminLoggedIn") === "true") {
@@ -29,6 +31,7 @@ const LoginAdmin = () => {
         }
       );
       const adminData = response.data
+      console.log(adminData);
 
       if (adminData) {
         localStorage.setItem("adminLoggedIn", "true");
@@ -38,7 +41,6 @@ const LoginAdmin = () => {
         localStorage.setItem("adminAge" , adminData.age)
         localStorage.setItem("adminFirstName" , adminData.firstName)
         localStorage.setItem("adminLastName" , adminData.lastName)
-        toast.done("Admin Login Successfully!")
         navigate("/admin");
       } else {
         setErrorMessage("Invalid email or password");
@@ -92,8 +94,6 @@ const LoginAdmin = () => {
                 <button className="login-btn">Login</button>
               </form>
               {errorMessage && <p className="error-message">{errorMessage}</p>}
-              <p className="forgot-login">Forgot your password ?</p>
-              <p className="get-login">Get help Signed in</p>
             </div>
           </div>
         </>

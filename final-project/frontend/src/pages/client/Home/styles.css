@@ -5,6 +5,7 @@
 .swiper {
   width: 100%;
   height: 200vh;
+  margin-top: 20px;
 }
 
 .swiper-slide {
@@ -27,6 +28,14 @@
   width: 100%;
   height: 650px;
   object-fit: cover;
+  opacity: 0.8;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.swiper-slide .img:hover {
+  opacity: 1;
+  transition: 0.5s ease;
+  background:rgb(90, 90, 238);
 }
 .slide-text {
   position: absolute;
@@ -47,14 +56,14 @@
   text-align: center !important;
   font-family: chillax-regular;
 }
-.swiper-wrapper{
+.swiper-wrapper {
   margin-top: 100px;
   height: 90%;
 }
-.mySwiper{
+.mySwiper {
   height: 110vh;
 }
 
-.images-slider:hover{
+/* .images-slider:hover {
   background: rgba(254, 60, 82, 0.8);
-}
+} */

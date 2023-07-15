@@ -146,8 +146,10 @@ const OffersAdmin = () => {
         <input id="edit-img" type="text" placeholder="Image URL" value="${record.img}" class="swal2-input" />
         <input id="edit-price" type="number" placeholder="Price" value="${record.price}" class="swal2-input" />
         <input id="edit-country" type="text" placeholder="Country" value="${record.country}" class="swal2-input" />
+        <input id="edit-capital" type="text" placeholder="Description" value="${record.capital}" class="swal2-input" />
         <input id="edit-info" type="text" placeholder="Information" value="${record.info}" class="swal2-input" />
         <input id="edit-description" type="text" placeholder="Description" value="${record.description}" class="swal2-input" />
+        <input id="edit-count" type="text" placeholder="Description" value="${record.count}" class="swal2-input" />
       `,
       showCancelButton: true,
       confirmButtonText: "Save",
@@ -160,6 +162,10 @@ const OffersAdmin = () => {
           Swal.getPopup().querySelector("#edit-info").value;
         const editedDescription =
           Swal.getPopup().querySelector("#edit-description").value;
+          const editedCapital =
+          Swal.getPopup().querySelector("#edit-capital").value;
+          const editedCount=
+          Swal.getPopup().querySelector("#edit-count").value;
 
         if (
           !editedImg ||
@@ -167,6 +173,10 @@ const OffersAdmin = () => {
           !editedCountry ||
           !editedInformation ||
           !editedDescription
+          ||
+          !editedCapital
+          ||
+          !editedCount
         ) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
@@ -177,6 +187,8 @@ const OffersAdmin = () => {
           country: editedCountry,
           info: editedInformation,
           description: editedDescription,
+          capital: editedCapital,
+          count: editedCount,
         };
       },
     }).then(async (result) => {

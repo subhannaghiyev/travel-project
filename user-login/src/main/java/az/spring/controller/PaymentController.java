@@ -1,38 +1,36 @@
-//package az.spring.controller;
-//
-//import az.spring.model.CreatePayment;
-//import az.spring.model.CreatePaymentResponse;
-//import com.stripe.exception.StripeException;
-//import com.stripe.model.PaymentIntent;
-//import com.stripe.param.PaymentIntentCreateParams;
-//import org.springframework.web.bind.annotation.CrossOrigin;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RequestBody;
-//import org.springframework.web.bind.annotation.RestController;
-//
-//@RestController
-//@CrossOrigin(origins = "http://localhost:3000")
-//public class PaymentController {
-//
-//    @PostMapping("/create-payment-intent")
-//    public CreatePaymentResponse createPaymentIntent(@RequestBody CreatePayment createPayment) throws StripeException {
-//            PaymentIntentCreateParams params =
-//                    PaymentIntentCreateParams.builder()
-//                            .setAmount(10 * 100L)
-//                            .setCurrency("usd")
-//                            .setAutomaticPaymentMethods(
-//                                    PaymentIntentCreateParams.AutomaticPaymentMethods
-//                                            .builder()
-//                                            .setEnabled(true)
-//                                            .build()
-//                            )
-//                            .build();
-//
-//            // Create a PaymentIntent with the order amount and currency
-//            PaymentIntent paymentIntent = PaymentIntent.create(params);
-//
-//           return  new CreatePaymentResponse(paymentIntent.getClientSecret());
-//
-//
-//    }
-//}
+package az.spring.controller;
+
+import az.spring.entity.OffersData;
+import az.spring.entity.Payment;
+import az.spring.service.OffersDataService;
+import az.spring.service.PaymentService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
+public class PaymentController {
+
+    private final PaymentService paymentService;
+
+    @GetMapping("/payments")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Payment> getAllPayment() {
+        return paymentService.getAllPayment();
+    }
+    @PostMapping("/savePayment")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void savePayment(@RequestBody List<Payment> payment){
+        paymentService.savePayment(payment);
+    }
+
+    @DeleteMapping("/deletePayment/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deletePayment(@PathVariable Long id){
+        paymentService.deletePayment(id);
+    }
+}

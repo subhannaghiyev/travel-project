@@ -129,13 +129,57 @@
     font-family: chillax-regular;
     color: white;
   }
-  .payment{
+  .payment {
     height: 40px;
     display: flex;
     gap: 10px;
     align-items: center;
-    .payment-icon{
-        font-size: 25px;
+    .payment-icon {
+      font-size: 25px;
     }
+  }
+}
+
+.no-data-container {
+  background: #360033; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0b8793,
+    #360033
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0b8793,
+    #360033
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  // padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  .no-data-title {
+    font-family: chillax-regular;
+    justify-content: center;
+    background-color: #fe435b;
+    color: white;
+    font-size: 40px;
+  }
+  .no-data-btn {
+    background: #642B73;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    width: 190px;
+    padding: 12px 28px;
+    border: none;
+    height: 6vh;
+    border-radius: 10px;
+    color: white;
+    font-family: chillax-regular;
+    cursor: pointer;
+    text-transform: capitalize;
   }
 }

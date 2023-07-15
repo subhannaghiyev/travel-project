@@ -78,7 +78,7 @@
         background: transparent;
         font-style: italic;
       }
-      .inp-select{
+      .inp-select {
         width: 344px;
         height: 60px;
         border: none;
@@ -92,11 +92,11 @@
         border: solid 2px rgba(255, 255, 255, 0.5);
         background: transparent;
         font-style: italic;
-      .inp-color {
-        border: solid 2px rgba(255, 255, 255, 0.5);
-        background: transparent;
+        .inp-color {
+          border: solid 2px rgba(255, 255, 255, 0.5);
+          background: transparent;
+        }
       }
-    }
       .inp-price {
         width: 100px;
         height: 60px;
@@ -210,10 +210,155 @@
           font-family: chillax-regular;
         }
       }
-      .contact-icons{
+      .contact-icons {
         display: flex;
         gap: 20px;
         padding-top: 50px;
+
+        .icons-1 {
+          position: relative;
+          display: block;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          line-height: 63px;
+          background: #131a2f;
+          border-radius: 50%;
+          font-size: 30px;
+          color: white;
+          transition: 0.5s;
+          cursor: pointer;
+        }
+        .icons-2 {
+          position: relative;
+          display: block;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          line-height: 63px;
+          background: #131a2f;
+          border-radius: 50%;
+          font-size: 30px;
+          color: white;
+          transition: 0.5s;
+          cursor: pointer;
+        }
+        .icons-3 {
+          position: relative;
+          display: block;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          line-height: 63px;
+          background: #131a2f;
+          border-radius: 50%;
+          font-size: 30px;
+          color: white;
+          transition: 0.5s;
+          cursor: pointer;
+        }
+        .icons-4 {
+          position: relative;
+          display: block;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          line-height: 63px;
+          background: #131a2f;
+          border-radius: 50%;
+          font-size: 30px;
+          color: white;
+          transition: 0.5s;
+          cursor: pointer;
+        }
+        .icons-1::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: #ffee10;
+          transition: 0.5s;
+          transform: scale(0.9);
+          z-index: -1;
+        }
+        .icons-2::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: #e60023;
+          transition: 0.5s;
+          transform: scale(0.9);
+          z-index: -1;
+        }
+        .icons-3::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: #ffee10;
+          transition: 0.5s;
+          transform: scale(0.9);
+          z-index: -1;
+        }
+        .icons-4::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: #ffee10;
+          transition: 0.5s;
+          transform: scale(0.9);
+          z-index: -1;
+        }
+        .icons-1:hover::before {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px #ffee10;
+        }
+        .icons-2:hover::before {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px #e60023;
+        }
+        .icons-3:hover::before {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px #ffee10;
+        }
+        .icons-4:hover::before {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px #ffee10;
+        }
+        .icons-1:hover {
+          color: #ffee10;
+          box-shadow: 0 0 25px #ffee10;
+          text-shadow: 0 0 5px #ffee10;
+        }
+        .icons-2:hover {
+          color: #e22e49;
+          box-shadow: 0 0 25px #e60023;
+          text-shadow: 0 0 5px #e60023;
+        }
+        .icons-3:hover {
+          color: rgb(63, 63, 206);
+          box-shadow: 0 0 25px rgb(63, 63, 206);
+          text-shadow: 0 0 25px rgb(63, 63, 206);
+        }
+        .icons-4:hover {
+          color: #ff5500;
+          box-shadow: 0 0 25px #ff5500;
+          text-shadow: 0 0 25px #ff5500;
+        }
       }
     }
   }
@@ -237,28 +382,51 @@
       padding-left: 20px;
       font-family: chillax-regular;
     }
-    .div-button{
-        margin-left: 200px;
-        .btn-contact {
-            width: 161px;
-            height: 56px;
-            background: rgba(254, 60, 82, 1);
-            border: none;
-            outline: none;
-            float: right;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            margin-top: 20px;
-            font-family: chillax-regular;
-          }
+    .div-button {
+      margin-left: 200px;
+      .btn-contact {
+        // width: 161px;
+        height: 56px;
+        
+        // background: rgba(254, 60, 82, 1);
+        border: none;
+        outline: none;
+        float: right;
+        color: #ffffff;
+        margin-top: 20px;
+        font-family: chillax-regular;
+        width: 200px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        // margin: 20px;
+        height: 55px;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%; 
+        background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+        border-radius: 50px;
+        moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        cursor: pointer;
+      }
+      .btn-contact:hover{
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        cursor: pointer;
+      }
     }
   }
 }
-.map{
-    padding-top: 100px;
-    padding-left: 145px;
-    width: 78%;
-    filter: brightness(0.8);
+.map {
+  padding-top: 100px;
+  padding-left: 145px;
+  width: 78%;
+  filter: brightness(0.8);
 }

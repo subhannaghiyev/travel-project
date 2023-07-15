@@ -5,6 +5,6 @@ export const ProductForm = yup.object().shape({
   age: yup.number().required().positive().integer(),
   email: yup.string().email(),
   username: yup.string().required(),
-  password: yup.string().required(),
+  password: yup.string().required().min(8).max(20)
 })
 .required();

@@ -26,7 +26,6 @@
       #833ab4
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
 
     position: relative;
     .login-destino {
@@ -84,28 +83,31 @@
           left: 8px;
           color: white;
         }
-        .login-form{
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            .login-inp {
-                width: 300px;
-                padding: 12px 28px;
-                border-radius: 20px;
-                border: none;
-                font-family: chillax-regular;
-                font-size: 18px;
-              }
-              .login-btn {
-                width: 350px;
-                padding: 12px 28px;
-                border-radius: 20px;
-                border: none;
-                font-family: chillax-regular;
-                background-color: #fcb045;
-                color: white;
-                cursor: pointer;
-              }
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .login-inp {
+            width: 300px;
+            padding: 12px 28px;
+            border-radius: 20px;
+            border: none;
+            font-family: chillax-regular;
+            font-size: 18px;
+          }
+          .login-inp:focus {
+            border: 2px solid #fcb045;
+          }
+          .login-btn {
+            width: 350px;
+            padding: 12px 28px;
+            border-radius: 20px;
+            border: none;
+            font-family: chillax-regular;
+            background-color: #fcb045;
+            color: white;
+            cursor: pointer;
+          }
         }
         .forgot-login {
           font-size: 10px;

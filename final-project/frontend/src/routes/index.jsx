@@ -24,6 +24,9 @@ import Payment from "../pages/client/Payment";
 import LogoAdmin from "../pages/admin/LogoAdmin";
 import User from "../pages/client/User";
 import DetailPage from "../pages/client/DetailPage";
+import AdminMessage from "../pages/client/AdminMessage";
+import Bought from "../pages/client/Bought";
+import StaticData from "../pages/client/StaticData";
 
 export const ROUTER = [
   {
@@ -77,6 +80,18 @@ export const ROUTER = [
       {
         path: "/payment",
         element: <Payment />,
+      },
+      {
+        path: "/adminMessage",
+        element: <AdminMessage />,
+      },
+      {
+        path: "/bought",
+        element: <Bought />,
+      },
+      {
+        path: "/data",
+        element: <StaticData />,
       },
     ],
   },

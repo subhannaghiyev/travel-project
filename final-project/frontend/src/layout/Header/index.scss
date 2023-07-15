@@ -16,12 +16,15 @@
       background: #131a2f;
       display: flex;
       justify-content: space-between;
+      gap: 45px;
       text-align: center;
       align-items: center;
       margin-left: 140px;
       margin-top: 50px;
       z-index: 999;
       position: fixed;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
 
       .logo {
         position: relative;
@@ -77,12 +80,12 @@
           padding-right: 25px;
           font-family: chillax-regular;
         }
-        li:hover{
-          color: #fe435b; 
+        li:hover {
+          color: #fe435b;
         }
       }
     }
-    .icon-button{
+    .icon-button {
       position: relative;
       .header-btn {
         z-index: 999;
@@ -94,8 +97,10 @@
         background: #fe435b;
         cursor: pointer;
         border: none;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
       }
-      .wishlist-count{
+      .wishlist-count {
         color: white;
         font-size: 20px;
         position: fixed;

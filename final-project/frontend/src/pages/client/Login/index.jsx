@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { AiOutlineGooglePlus } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FiFacebook } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import axios from "axios";
-import { toast } from "react-toastify";
-import Swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
 
 const Login = () => {
@@ -17,33 +17,45 @@ const Login = () => {
   let count = 0;
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post("http://localhost:4040/users/login", {
         username,
         password,
       });
       const token = response.data;
+      console.log(response.data);
+      console.log("token", token);
       localStorage.setItem("userFirstName", token.firstName);
       localStorage.setItem("userLastName", token.lastName);
       localStorage.setItem("userPassword", token.password);
       localStorage.setItem("userAge", token.age);
       localStorage.setItem("userUsername", token.username);
       localStorage.setItem("userEmail", token.email);
+      localStorage.setItem("userIsAdmin", token.isAdmin);
       const tokenString = JSON.stringify(token);
-      console.log("username", username);
-      console.log("username", token.username);
-      console.log(tokenString);
       localStorage.setItem("token", tokenString);
-      if (username == token.username) {
-        Swal.getPopup("User Login Successfully!");
+  
+      if (username == token.username && token.isAdmin === false) {
         navigate("/");
-        toast.error("User Login not Successfully!");
-      } 
-      else {
-        setErrorMessage("Invalid Username");
+        toast.success("User Login Successfully!", {
+          autoClose : 1000
+        });
+      } else if (token.isAdmin === true) {
+        navigate("/");
+        toast.success("Admin Login Successfully!",{
+          autoClose : 1000
+        });
+       } else if (token.statusCode === 404) {
         navigate("/login");
-        toast.error("Invalid Username");
+        toast.error("Invalid Username!", {
+          autoClose: 1000,
+        });
+      } else if (token.statusCode === 406) {
+        navigate("/login");
+        toast.error("Invalid Password!", {
+          autoClose: 1000,
+        });
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -56,7 +68,8 @@ const Login = () => {
         toast.error("User not found");
       }
     }
-  };
+  };  
+
   const hasTokenExpired = (token) => {
     const key = "TOKEN:" + token;
 
@@ -84,7 +97,7 @@ const Login = () => {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Login</title>
         <link rel="canonical" href="http://mysite.com/example" />
@@ -147,15 +160,25 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <p className="forgot">Forgot your password?</p>
-              <button type="submit" className="btn-login">
-                Sign In
-              </button>
+              <div style={{ display: "flex" }}>
+                <p>
+                  Don't have an account ?{" "}
+                  <Link to="/register">
+                    <li className="li-register">Register</li>
+                  </Link>
+                </p>
+              </div>
+              <div style={{ cursor: "pointer" }}>
+                <button type="submit" className="btn-login">
+                  Sign In
+                </button>
+              </div>
             </form>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

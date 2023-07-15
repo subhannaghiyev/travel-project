@@ -1,9 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.scss";
 const News = () => {
+  const [value, setValue] = useState("");
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
   const [data , setData] = useState([])
   const navigate = useNavigate();
   const getData = async () =>{
@@ -86,12 +90,18 @@ const News = () => {
             name=""
             id=""
             placeholder="Search"
+            onChange={handleChange}
           />
         </div>
       </div>
 
       <div className="flex-news">
-        {data && data.map((d)=>(
+        {data && data
+        .filter(
+          (item) =>
+            item.description.toLowerCase().includes(value.toLowerCase())
+        )
+        .map((d)=>(
           <div className="images-news" key={d.id}>
           <div className="news-images">
             <img
@@ -114,14 +124,10 @@ const News = () => {
             <p className="p-last">Subscribe to our Newsletter</p>
           </div>
           <div className="last-section-input">
-            <input
-              className="last-section-inp"
-              type="text"
-              name=""
-              id=""
-              placeholder="Your E-mail Address"
-            />
-            <button className="last-btn">Subscribe</button>
+            <p className="last-section-inp">Send to Email Admin</p>
+            <Link to="/adminMessage">
+            <button className="last-btn">Send</button>
+            </Link>
           </div>
         </div>
       </div>

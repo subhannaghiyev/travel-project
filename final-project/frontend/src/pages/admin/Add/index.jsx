@@ -128,7 +128,7 @@ const Add = () => {
           const country = document.getElementById("country").value;
           const info = document.getElementById("info").value;
           const description = document.getElementById("description").value;
-          return { img, price, country, info, description };
+          return { img, price, country, info, description};
         },
       });
 

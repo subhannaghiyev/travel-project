@@ -57,37 +57,43 @@
           display: flex;
           gap: 10px;
         }
-        .form{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            .login-text {
-                width: 250px;
-                height: 45px;
-                background-color: black;
-                border: none;
-                color: white;
-                padding-left: 10px;
-                &::placeholder{
-                  color: white;
-                }
-                outline: none;
-              }
-              .forgot {
-                font-size: 10px;
-                margin-left: 130px;
-              }
-              .btn-login {
-                width: 200px;
-                padding: 10px 34px;
-                border-radius: 10px;
-                border: none;
-                background-color: deeppink;
-                color: white;
-                font-family: chillax-regular;
-                cursor: pointer;
-              }
+        .form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          .login-text {
+            width: 250px;
+            height: 45px;
+            background-color: black;
+            border: none;
+            color: white;
+            padding-left: 10px;
+            &::placeholder {
+              color: white;
+            }
+            outline: none;
+          }
+          .li-register {
+            // font-size: 10px;
+            // margin-left: 130px;
+            color: rgb(232, 64, 154);
+            display: inline-block;
+          }
+          .btn-login {
+            cursor: pointer;
+            width: 200px;
+            padding: 10px 34px;
+            border-radius: 10px;
+            border: none;
+            background-color: deeppink;
+            color: white;
+            font-family: chillax-regular;
+          }
+          // .btn-login:hover {
+          //   cursor: pointer;
+          //   background-color: rgb(224, 56, 146);
+          // }
         }
       }
     }

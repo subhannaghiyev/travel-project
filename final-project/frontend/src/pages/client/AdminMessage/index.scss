@@ -1,0 +1,108 @@
+@font-face {
+  font-family: chillax-regular;
+  src: url("../../../assets/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  .background-admin {
+    background-image: url("https://preview.colorlib.com/theme/destino/images/home.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    font-family: chillax-regular;
+    .message-admin {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      align-items: center;
+      padding-top: 120px;
+      .form-msg {
+        .label-start {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .label {
+            color: #ec8c69;
+            font-size: 20px;
+            font-family: chillax-regular;
+            margin-top: 1rem;
+          }
+          .message-inp {
+            width: 450px;
+            height: 3vh;
+            padding: 14px 28px;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            font-family: chillax-regular;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.584);
+          }
+          .message-inp:focus {
+            border: 2px solid #ed6ea0;
+          }
+          .message-inp-m {
+            width: 450px;
+            height: 20vh;
+            padding: 14px 28px;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            font-family: chillax-regular;
+            cursor: grab;
+            background-color: rgba(255, 255, 255, 0.584);
+          }
+          .message-inp-m:focus {
+            border: 2px solid #ed6ea0;
+          }
+          .buttons-msg {
+            margin-top: 10px;
+            .btn-msg {
+              width: 150px;
+              height: 6vh;
+              padding: 12px 28px;
+              border: none;
+              border-radius: 10px;
+              background-image: linear-gradient(
+                to right,
+                #ed6ea0,
+                #ec8c69,
+                #f7186a,
+                #fbb03b
+              );
+              box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+              color: whitesmoke;
+              cursor: pointer;
+              width: 200px;
+              font-size: 16px;
+              font-weight: 600;
+              color: #fff;
+              cursor: pointer;
+              text-align: center;
+              border: none;
+              background-size: 300% 100%;
+
+              border-radius: 25px;
+              moz-transition: all 0.4s ease-in-out;
+              -o-transition: all 0.4s ease-in-out;
+              -webkit-transition: all 0.4s ease-in-out;
+              transition: all 0.4s ease-in-out;
+              font-family: chillax-regular;
+            }
+            .btn-msg:hover {
+              background-position: 100% 0;
+              moz-transition: all 0.4s ease-in-out;
+              -o-transition: all 0.4s ease-in-out;
+              -webkit-transition: all 0.4s ease-in-out;
+              transition: all 0.4s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}

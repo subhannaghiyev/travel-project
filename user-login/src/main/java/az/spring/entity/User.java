@@ -28,6 +28,7 @@ public class User {
     Long age;
     Boolean isActive;
     String username;
+    @Column(unique = true)
     String email;
     String password;
     Boolean isAdmin;

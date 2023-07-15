@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
         List<UserRequest> userRequestList = new ArrayList<>();
 
-        for (User user : users){
+        for (User user : users) {
             userRequestList.add(UserModel.STUDENT_BUILDER.buildEntityRequest(user));
         }
         return userRequestList;
@@ -86,12 +86,23 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
+        @Override
     public UserDto isValidAdmin(String email) {
-        User user = userRepository.findByEmailAndIsAdmin(email ,true);
-        return UserModel.STUDENT_BUILDER.buildEntity(user);
+        User admin = userRepository.findByEmailAndIsAdmin(email ,true);
+        System.out.println(admin);
+        return UserModel.STUDENT_BUILDER.buildEntity(admin);
     }
-
+//    public UserDto isValidAdmin(String email) {
+//        List<User> admins = userRepository.findByEmailAndIsAdmin(email, true);
+//
+//        if (admins.isEmpty()) {
+//            return null; // veya isteğe bağlı bir değer döndürebilirsiniz
+//        }
+//
+//        User admin = admins.get(0); // İlk bulunan admin kullanıcısını al
+//
+//        return UserModel.STUDENT_BUILDER.buildEntity(admin);
+//    }
 
 
     @Override
@@ -102,8 +113,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveCard(UserCardRequest userCardRequest) {
-       User user =  UserModel.STUDENT_BUILDER.buildCardRequest(userCardRequest);
-       userRepository.save(user);
+        User user = UserModel.STUDENT_BUILDER.buildCardRequest(userCardRequest);
+        userRepository.save(user);
     }
 
     @Override

@@ -12,7 +12,7 @@ public enum UserModel {
 
 
     public final User buildDto(UserDto userDto) {
-//        Boolean isAdmin = (userDto.getIsAdmin() != null) ? userDto.getIsAdmin() : false;
+        Boolean isAdmin = (userDto.getIsAdmin() != null) ? userDto.getIsAdmin() : false;
 
 
         return User.builder()
@@ -24,7 +24,7 @@ public enum UserModel {
                 .username(userDto.getUsername())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
-//                .isAdmin(isAdmin)
+                .isAdmin(isAdmin)
                 .cardNumber(userDto.getCardNumber())
                 .address(userDto.getAddress())
                 .country(userDto.getCountry())
@@ -34,7 +34,7 @@ public enum UserModel {
                 .build();
     }
     public final UserDto buildEntity(User user) {
-//        Boolean isAdmin = (user.getIsAdmin() != null) ? user.getIsAdmin() : false;
+        Boolean isAdmin = (user.getIsAdmin() != null) ? user.getIsAdmin() : false;
 
 
         return UserDto.builder()
@@ -46,7 +46,7 @@ public enum UserModel {
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .password(user.getPassword())
-//                .isAdmin(isAdmin)
+                .isAdmin(isAdmin)
                 .cardNumber(user.getCardNumber())
                 .address(user.getAddress())
                 .country(user.getCountry())

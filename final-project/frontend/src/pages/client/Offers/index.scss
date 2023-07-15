@@ -178,7 +178,7 @@
       height: 38px;
       line-height: 32px;
       cursor: pointer;
-      border: solid 2px #dbdbdb;
+      border: 1px solid #3a55a8;
       padding-left: 15px;
       padding-right: 7px;
       margin-right: 16px;
@@ -186,6 +186,8 @@
       font-weight: 500;
       color: #131a2f;
       margin-bottom: 10px;
+      border-radius: 10px;
+      font-family: chillax-regular;
     }
   }
   .offers-icons {
@@ -200,6 +202,7 @@
       color: #9195a3;
       margin-right: 30px;
       line-height: 36px;
+      font-family: chillax-regular;
     }
     .fa-icon {
       font-size: 16px;
@@ -297,16 +300,19 @@
         font-family: chillax-regular;
       }
       .btn-offers {
-        width: 60px;
+        width: 80px;
+        height: 4vh;
         border: white;
         font-size: 12px;
         color: #131a2f;
         cursor: pointer;
         margin-top: 50px;
         transition: all 0.4s ease;
+        border: 1px solid #fa9e1b;
+        border-radius: 10px;
       }
       .btn-offers:hover {
-        color: rgba(254, 60, 82, 0.8);
+        color: #1d306b;
       }
     }
   }
